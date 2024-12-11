@@ -1,67 +1,66 @@
 using Tyuiu.EvseevEI.Sprint6.Task3.V19.Lib;
-namespace Tyuiu.EvseevEI.Sprint6.Task3.V19
+namespace Tyuiu.EvseevEI.Sprint6.Task3.V19;
+
+public partial class Form1 : Form
 {
-    public partial class Form1 : Form
+    public Form1()
     {
-        public Form1()
+        InitializeComponent();
+    }
+    DataService ds = new DataService();
+    int[,] matrix =  { { 4, 32, -20, 27, 21 },
+                            { 17,15,-1,-2,-1},
+                            {-3,18,12,-10,29},
+                            { 7,-15,2,-8,12 },
+                            { -10,25,5,27,21} };
+    private void buttonINF_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("Таск выполнил студент группы ИИПБ - 24 - 2, Евсеев Егор Игоревич");
+    }
+
+    private void buttonRes_Click(object sender, EventArgs e)
+    {
+        int[,] res = new int[5, 5];
+        res = ds.Calculate(matrix);
+
+        string matrixString = "";
+
+
+        for (int i = 0; i < res.GetLength(0); i++)
         {
-            InitializeComponent();
+            for (int j = 0; j < res.GetLength(1); j++)
+            {
+                matrixString += res[i, j] + " ";
+            }
+            matrixString += Environment.NewLine;
+        }
+        textBoxRes.Text = matrixString;
+    }
+
+    private void dataGridViewRes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+        int rows = matrix.GetLength(0);
+        int columns = matrix.GetLength(1);
+
+        dataGridViewRes.RowCount = rows;
+        dataGridViewRes.ColumnCount = columns;
+
+        for (int i = 0; i < columns; i++)
+        {
+            dataGridViewRes.Columns[i].Width = 25;
         }
 
-        DataService ds = new DataService();
-        int[,] matrix =
-            {
-                {4,  32, -20,  27,  21},
-                {17, 15, -1, -2, -1},
-                {-3, 18, 12, -10, 29},
-                {7, -15, 2, -8, 12},
-                {-10, 25, 5, 27, 21}
-            };
-
-        private void FormMain_Load(object sender, EventArgs e)
+        for (int i = 0; i < rows; i++)
         {
-            int rows = matrix.GetUpperBound(0) + 1;
-            int colums = matrix.Length / rows;
-
-            dataGridViewMatrix_EEI.ColumnCount = colums;
-            dataGridViewMatrix_EEI.RowCount = rows;
-
-            for (int i = 0; i < colums; i++)
+            for (int j = 0; j < columns; j++)
             {
-                dataGridViewMatrix_EEI.Columns[i].Width = 35;
+                dataGridViewRes.Rows[i].Cells[j].Value = Convert.ToString(matrix[i, j]);
             }
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < colums; j++)
-                {
-                    dataGridViewMatrix_EEI.Rows[i].Cells[j].Value = matrix[i, j];
-                }
-            }
-        }
-
-        private void buttonDown_EEI_Click(object sender, EventArgs e)
-        {
-            int[,] res = ds.Calculate(matrix);
-            int row = res.GetUpperBound(0) + 1;
-            int colum = res.Length / row;
-            dataGridViewResult_EEI.ColumnCount = colum;
-            dataGridViewResult_EEI.RowCount = row;
-            for (int i = 0; i < colum; i++)
-            {
-                dataGridViewResult_EEI.Columns[i].Width = 35;
-            }
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < colum; j++)
-                {
-                    dataGridViewResult_EEI.Rows[i].Cells[j].Value = res[i, j];
-                }
-            }
-        }
-
-        private void buttonQuestion_EEI_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("ИИПБ-24-2 ");
         }
     }
 }

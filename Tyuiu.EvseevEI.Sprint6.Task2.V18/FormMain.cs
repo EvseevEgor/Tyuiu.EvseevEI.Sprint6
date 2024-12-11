@@ -10,9 +10,9 @@ namespace Tyuiu.EvseevEI.Sprint6.Task2.V18
             InitializeComponent();
         }
         DataService ds = new DataService();
-        private void button4_Click(object sender, EventArgs e)
+        private void ButtonINF(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Таск выполнил студент группы ИИПБ - 24 - 2, Евсеев Егор Игоревич");
         }
 
         private void button_Done_Click(object sender, EventArgs e)
@@ -25,19 +25,19 @@ namespace Tyuiu.EvseevEI.Sprint6.Task2.V18
             valueArray = new double[len];
             valueArray = ds.GetMassFunction(startStep, stopStep);
             this.chartFunction.Titles.Add("График функции ");
-            this.chartFunction.ChartAreas[0] . AxisX.Title = "Ось X";
+            this.chartFunction.ChartAreas[0].AxisX.Title = "Ось X";
             this.chartFunction.ChartAreas[0].AxisY.Title = "Ось Y";
 
             for (int i = 0; i <= len - 1; i++)
             {
-                this.dataGridViewFunction.Rows.Add(Convert.ToString(startStep), Convert.ToString(valueArray[i]));
+                this.DataGridViewFunction.Rows.Add(Convert.ToString(startStep), Convert.ToString(valueArray[i]));
                 this.chartFunction.Series[0].Points.AddXY(startStep, valueArray[i]);
                 startStep++;
             }
 
         }
-       
-        
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -48,12 +48,24 @@ namespace Tyuiu.EvseevEI.Sprint6.Task2.V18
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewFunction_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void chart1_Click(object sender, EventArgs e)
+        private void chartFunction_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void textBoxStartStep_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxStopStep_TextChanged(object sender, EventArgs e)
         {
 
         }

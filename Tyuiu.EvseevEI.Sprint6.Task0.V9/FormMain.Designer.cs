@@ -1,4 +1,5 @@
-﻿namespace Tyuiu.EvseevEI.Sprint6.Task0.V9;
+﻿
+namespace Tyuiu.EvseevEI.Sprint6.Task0.V9;
 
 partial class FormMain
 {
@@ -35,9 +36,9 @@ partial class FormMain
         groupBoxObsh_EEI = new GroupBox();
         groupBoxResult_EEI = new GroupBox();
         textBox_Result_EEI = new TextBox();
-        Button_Click_EEI_KeyPress = new Button();
         buttonResult_EEI = new Button();
         button_Clickno_EEI = new Button();
+        Textbox_click_EEI = new TextBox();
         ((System.ComponentModel.ISupportInitialize)pictureBox_EEI).BeginInit();
         groupBoxObsh_EEI.SuspendLayout();
         groupBoxResult_EEI.SuspendLayout();
@@ -65,7 +66,6 @@ partial class FormMain
         textBoxOne_EEI.Size = new Size(919, 272);
         textBoxOne_EEI.TabIndex = 0;
         textBoxOne_EEI.Text = "Вычислить выражение по формуле";
-        textBoxOne_EEI.TextChanged += textBox1_TextChanged;
         // 
         // textBoxTwo_EEI
         // 
@@ -77,7 +77,6 @@ partial class FormMain
         textBoxTwo_EEI.Size = new Size(611, 183);
         textBoxTwo_EEI.TabIndex = 2;
         textBoxTwo_EEI.Text = "Ввод данных";
-        textBoxTwo_EEI.TextChanged += textBox2_TextChanged;
         // 
         // pictureBox_EEI
         // 
@@ -90,7 +89,6 @@ partial class FormMain
         pictureBox_EEI.SizeMode = PictureBoxSizeMode.Zoom;
         pictureBox_EEI.TabIndex = 3;
         pictureBox_EEI.TabStop = false;
-        pictureBox_EEI.Click += pictureBox_EEI_Click;
         // 
         // groupBoxObsh_EEI
         // 
@@ -102,7 +100,6 @@ partial class FormMain
         groupBoxObsh_EEI.TabIndex = 7;
         groupBoxObsh_EEI.TabStop = false;
         groupBoxObsh_EEI.Text = "Вывод данных";
-        groupBoxObsh_EEI.Enter += groupBox2_Enter;
         // 
         // groupBoxResult_EEI
         // 
@@ -114,7 +111,6 @@ partial class FormMain
         groupBoxResult_EEI.TabIndex = 2;
         groupBoxResult_EEI.TabStop = false;
         groupBoxResult_EEI.Text = "Результат";
-        groupBoxResult_EEI.Enter += groupBox3_Enter;
         // 
         // textBox_Result_EEI
         // 
@@ -126,18 +122,7 @@ partial class FormMain
         textBox_Result_EEI.Name = "textBox_Result_EEI";
         textBox_Result_EEI.Size = new Size(302, 86);
         textBox_Result_EEI.TabIndex = 1;
-        textBox_Result_EEI.TextChanged += textBox_Result_EEI_TextChanged;
-        // 
-        // Button_Click_EEI_KeyPress
-        // 
-        Button_Click_EEI_KeyPress.AccessibleName = "Button_Click_EEI_KeyPress";
-        Button_Click_EEI_KeyPress.Location = new Point(81, 447);
-        Button_Click_EEI_KeyPress.Name = "Button_Click_EEI_KeyPress";
-        Button_Click_EEI_KeyPress.Size = new Size(424, 82);
-        Button_Click_EEI_KeyPress.TabIndex = 8;
-        Button_Click_EEI_KeyPress.UseVisualStyleBackColor = true;
-        Button_Click_EEI_KeyPress.Click += Button_ClickA_EEI_KeyPress;
-        Button_Click_EEI_KeyPress.KeyPress += Button_ClickA_EEI_KeyPress;
+        textBox_Result_EEI.TextChanged += textBox_Result_EEI_TextChanged_1;
         // 
         // buttonResult_EEI
         // 
@@ -149,7 +134,7 @@ partial class FormMain
         buttonResult_EEI.TabIndex = 3;
         buttonResult_EEI.Text = "Выполнить";
         buttonResult_EEI.UseVisualStyleBackColor = false;
-        buttonResult_EEI.Click += button1_Click;
+        buttonResult_EEI.Click += ButtonResult_EEI_Click;
         // 
         // button_Clickno_EEI
         // 
@@ -161,16 +146,26 @@ partial class FormMain
         button_Clickno_EEI.TabIndex = 11;
         button_Clickno_EEI.Text = "?";
         button_Clickno_EEI.UseVisualStyleBackColor = false;
-        button_Clickno_EEI.Click += button2_Click;
+        button_Clickno_EEI.Click += Button_Clickno_EEI_Click;
+        // 
+        // Textbox_click_EEI
+        // 
+        Textbox_click_EEI.AccessibleName = "Textbox_click_EEI";
+        Textbox_click_EEI.Location = new Point(37, 448);
+        Textbox_click_EEI.Multiline = true;
+        Textbox_click_EEI.Name = "Textbox_click_EEI";
+        Textbox_click_EEI.Size = new Size(397, 86);
+        Textbox_click_EEI.TabIndex = 12;
+        Textbox_click_EEI.TextChanged += Textbox_click_EEI_TextChanged;
         // 
         // FormMain
         // 
         AutoScaleDimensions = new SizeF(13F, 32F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(927, 664);
+        Controls.Add(Textbox_click_EEI);
         Controls.Add(button_Clickno_EEI);
         Controls.Add(buttonResult_EEI);
-        Controls.Add(Button_Click_EEI_KeyPress);
         Controls.Add(groupBoxObsh_EEI);
         Controls.Add(pictureBox_EEI);
         Controls.Add(textBoxTwo_EEI);
@@ -196,7 +191,7 @@ partial class FormMain
     private GroupBox groupBoxObsh_EEI;
     private TextBox textBox_Result_EEI;
     private GroupBox groupBoxResult_EEI;
-    private Button Button_Click_EEI_KeyPress;
     private Button buttonResult_EEI;
     private Button button_Clickno_EEI;
+    private TextBox Textbox_click_EEI;
 }

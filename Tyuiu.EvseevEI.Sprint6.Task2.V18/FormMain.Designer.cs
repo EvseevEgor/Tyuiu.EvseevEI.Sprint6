@@ -33,24 +33,24 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             groupBox1 = new GroupBox();
             textBox1 = new TextBox();
-            textBoxStartStep = new Button();
-            textBoxStopStep = new Button();
             button_Done = new Button();
-            button4 = new Button();
+            buttonINF = new Button();
             groupBox2 = new GroupBox();
+            textBoxStopStep = new TextBox();
+            textBoxStartStep = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
             groupBox3 = new GroupBox();
             chartFunction = new System.Windows.Forms.DataVisualization.Charting.Chart();
             textBox4 = new TextBox();
-            dataGridViewFunction = new DataGridView();
+            DataGridViewFunction = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartFunction).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewFunction).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewFunction).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -69,28 +69,12 @@
             textBox1.Location = new Point(9, 38);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
+            textBox1.ShortcutsEnabled = false;
             textBox1.Size = new Size(657, 111);
             textBox1.TabIndex = 0;
             textBox1.Text = "Протабулировать функцию  на заданном диапазоне";
+            textBox1.WordWrap = false;
             textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // textBoxStartStep
-            // 
-            textBoxStartStep.AccessibleName = "textBoxStartStep";
-            textBoxStartStep.Location = new Point(6, 110);
-            textBoxStartStep.Name = "textBoxStartStep";
-            textBoxStartStep.Size = new Size(191, 54);
-            textBoxStartStep.TabIndex = 0;
-            textBoxStartStep.UseVisualStyleBackColor = true;
-            // 
-            // textBoxStopStep
-            // 
-            textBoxStopStep.AccessibleName = "textBoxStopStep";
-            textBoxStopStep.Location = new Point(241, 110);
-            textBoxStopStep.Name = "textBoxStopStep";
-            textBoxStopStep.Size = new Size(205, 54);
-            textBoxStopStep.TabIndex = 1;
-            textBoxStopStep.UseVisualStyleBackColor = true;
             // 
             // button_Done
             // 
@@ -105,29 +89,49 @@
             button_Done.UseVisualStyleBackColor = false;
             button_Done.Click += button_Done_Click;
             // 
-            // button4
+            // buttonINF
             // 
-            button4.BackColor = Color.Coral;
-            button4.Location = new Point(476, 515);
-            button4.Name = "button4";
-            button4.Size = new Size(150, 110);
-            button4.TabIndex = 3;
-            button4.Text = "Справка";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            buttonINF.BackColor = Color.Coral;
+            buttonINF.Location = new Point(476, 515);
+            buttonINF.Name = "buttonINF";
+            buttonINF.Size = new Size(150, 110);
+            buttonINF.TabIndex = 3;
+            buttonINF.Text = "Справка";
+            buttonINF.UseVisualStyleBackColor = false;
+            buttonINF.Click += ButtonINF;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(textBoxStopStep);
+            groupBox2.Controls.Add(textBoxStartStep);
             groupBox2.Controls.Add(textBox3);
             groupBox2.Controls.Add(textBox2);
-            groupBox2.Controls.Add(textBoxStartStep);
-            groupBox2.Controls.Add(textBoxStopStep);
             groupBox2.Location = new Point(12, 461);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(458, 183);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Ввод данных";
+            // 
+            // textBoxStopStep
+            // 
+            textBoxStopStep.AccessibleName = "textBoxStopStep";
+            textBoxStopStep.Location = new Point(241, 125);
+            textBoxStopStep.Multiline = true;
+            textBoxStopStep.Name = "textBoxStopStep";
+            textBoxStopStep.Size = new Size(200, 58);
+            textBoxStopStep.TabIndex = 5;
+            textBoxStopStep.TextChanged += textBoxStopStep_TextChanged;
+            // 
+            // textBoxStartStep
+            // 
+            textBoxStartStep.AccessibleName = "textBoxStartStep";
+            textBoxStartStep.Location = new Point(6, 125);
+            textBoxStartStep.Multiline = true;
+            textBoxStartStep.Name = "textBoxStartStep";
+            textBoxStartStep.Size = new Size(200, 58);
+            textBoxStartStep.TabIndex = 4;
+            textBoxStartStep.TextChanged += textBoxStartStep_TextChanged;
             // 
             // textBox3
             // 
@@ -154,7 +158,7 @@
             groupBox3.BackColor = SystemColors.ControlLight;
             groupBox3.Controls.Add(chartFunction);
             groupBox3.Controls.Add(textBox4);
-            groupBox3.Controls.Add(dataGridViewFunction);
+            groupBox3.Controls.Add(DataGridViewFunction);
             groupBox3.Location = new Point(846, 12);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(899, 659);
@@ -179,7 +183,7 @@
             chartFunction.Size = new Size(544, 600);
             chartFunction.TabIndex = 2;
             chartFunction.Text = "chart1";
-            chartFunction.Click += chart1_Click;
+            chartFunction.Click += chartFunction_Click;
             // 
             // textBox4
             // 
@@ -190,19 +194,19 @@
             textBox4.TabIndex = 1;
             textBox4.Text = "Результат";
             // 
-            // dataGridViewFunction
+            // DataGridViewFunction
             // 
-            dataGridViewFunction.AccessibleName = "dataGridViewFunction";
-            dataGridViewFunction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewFunction.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            dataGridViewFunction.Location = new Point(6, 86);
-            dataGridViewFunction.Name = "dataGridViewFunction";
-            dataGridViewFunction.RowHeadersVisible = false;
-            dataGridViewFunction.RowHeadersWidth = 82;
-            dataGridViewFunction.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewFunction.Size = new Size(269, 567);
-            dataGridViewFunction.TabIndex = 0;
-            dataGridViewFunction.CellContentClick += dataGridView1_CellContentClick;
+            DataGridViewFunction.AccessibleName = "DataGridViewFunction";
+            DataGridViewFunction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridViewFunction.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
+            DataGridViewFunction.Location = new Point(6, 86);
+            DataGridViewFunction.Name = "DataGridViewFunction";
+            DataGridViewFunction.RowHeadersVisible = false;
+            DataGridViewFunction.RowHeadersWidth = 82;
+            DataGridViewFunction.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            DataGridViewFunction.Size = new Size(269, 567);
+            DataGridViewFunction.TabIndex = 0;
+            DataGridViewFunction.CellContentClick += DataGridViewFunction_CellContentClick;
             // 
             // Column1
             // 
@@ -225,7 +229,7 @@
             ClientSize = new Size(1781, 702);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
-            Controls.Add(button4);
+            Controls.Add(buttonINF);
             Controls.Add(button_Done);
             Controls.Add(groupBox1);
             Name = "FormMain";
@@ -237,26 +241,26 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chartFunction).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewFunction).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewFunction).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox1;
-        private Button textBoxStartStep;
-        private Button textBoxStopStep;
         private Button button_Done;
-        private Button button4;
+        private Button buttonINF;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private TextBox textBox1;
         private TextBox textBox3;
         private TextBox textBox2;
         private TextBox textBox4;
-        private DataGridView dataGridViewFunction;
+        private DataGridView DataGridViewFunction;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartFunction;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
+        private TextBox textBoxStopStep;
+        private TextBox textBoxStartStep;
     }
 }
